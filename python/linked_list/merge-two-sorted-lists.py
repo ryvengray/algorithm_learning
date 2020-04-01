@@ -1,7 +1,7 @@
 from python.commons.node import ListNode, generate_list_node, print_list_node
 
 
-# leetcode [2]
+# leetcode [21]
 class Solution:
 
     # 两数相加
