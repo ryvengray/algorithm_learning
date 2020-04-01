@@ -5,6 +5,9 @@ class ListNode:
         self.val = x
         self.next = None
 
+    def __repr__(self):
+        return 'val: {}; next: {}'.format(self.val, self.next.val if self.next else None)
+
 
 def generate_list_node(arr):
     if len(arr) == 0:
