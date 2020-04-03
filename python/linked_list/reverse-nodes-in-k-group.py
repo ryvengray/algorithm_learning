@@ -11,20 +11,31 @@ class Solution:
         dummy.next = head
         start = dummy
         while start:
+            # check
             count = 0
-            prev = start
             cur = start.next
-            while cur and cur.next and count < k:
+            while count < k and cur:
+                count += 1
+                cur = cur.next
+            if count < k:
+                break
+            count = 0
+            cur = start.next
+            prev = None
+            while cur and count < k:
                 count += 1
                 cur.next, prev, cur = prev, cur, cur.next
-            if count == k:
-                start = prev
+            node = start.next
+            start.next = prev
+            node.next = cur
+            start = node
+
         return dummy.next
 
 
 if __name__ == '__main__':
-    test_head = generate_list_node([1, 2, 3, 4, 5])
+    test_head = generate_list_node([1, 2, 3, 4, 5, 6])
     print_list_node(test_head)
-    h = Solution.reverse_k_group(test_head, 2)
+    h = Solution.reverse_k_group(test_head, 3)
     print_list_node(h)
 
